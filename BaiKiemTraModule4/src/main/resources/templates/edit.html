@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<main style="margin-bottom: 4rem">
+    <form method="post" th:object="${city}">
+        <input type="hidden" th:value="*{id}">
+        <table class="table">
+            <tr>
+                <td>Name :</td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{name}">
+                </td>
+            </tr>
+            <tr>
+                <td>Country :</td>
+                <td>
+                    <select th:field="*{country.id}">
+                        <option th:each="n:${countries}" th:value="${n.id}" th:text="${n.name}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Area :</td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{area}">
+                </td>
+            </tr>
+            <tr>
+                <td>Population :</td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{population}">
+                </td>
+            </tr>
+            <tr>
+                <td>GDP :</td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{gdp}">
+                </td>
+            </tr>
+            <tr>
+                <td>Description :</td>
+                <td>
+                    <textarea class="form-control" cols="" th:field="*{description}"></textarea>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary">Update City</button>
+        <a class="btn btn-primary" href="/">Home</a>
+    </form></main>
+</body>
+</html>
