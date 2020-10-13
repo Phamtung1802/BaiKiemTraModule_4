@@ -17,51 +17,52 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-<main style="margin-bottom: 4rem">
-    <form method="post" th:object="${city}">
-        <input type="hidden" th:value="*{id}">
-        <table class="table">
-            <tr>
-                <td>Name :</td>
-                <td>
-                    <input class="form-control" type="text" th:field="*{name}">
-                </td>
-            </tr>
-            <tr>
-                <td>Country :</td>
-                <td>
-                    <select th:field="*{country.id}">
-                        <option th:each="n:${countries}" th:value="${n.id}" th:text="${n.name}"></option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Area :</td>
-                <td>
-                    <input class="form-control" type="text" th:field="*{area}">
-                </td>
-            </tr>
-            <tr>
-                <td>Population :</td>
-                <td>
-                    <input class="form-control" type="text" th:field="*{population}">
-                </td>
-            </tr>
-            <tr>
-                <td>GDP :</td>
-                <td>
-                    <input class="form-control" type="text" th:field="*{gdp}">
-                </td>
-            </tr>
-            <tr>
-                <td>Description :</td>
-                <td>
-                    <textarea class="form-control" cols="" th:field="*{description}"></textarea>
-                </td>
-            </tr>
-        </table>
-        <button type="submit" class="btn btn-primary">Update City</button>
-        <a class="btn btn-primary" href="/">Home</a>
-    </form></main>
+<main class="container">
+    <div class="row">
+        <form method="post" th:object="${city}">
+            <input type="hidden" th:value="*{id}">
+            <table class="table">
+                <tr>
+                    <td>Name :</td>
+                    <td><input class="form-control" type="text" th:field="*{name}"></td>
+                </tr>
+                <tr>
+                    <td>Country :</td>
+                    <td>
+                        <select th:field="*{country.id}">
+                            <option th:each="n:${countries}" th:value="${n.id}" th:text="${n.name}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Area :</td>
+                    <td>
+                        <input class="form-control" type="text" th:field="*{area}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Population :</td>
+                    <td>
+                        <input class="form-control" type="text" th:field="*{population}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>GDP :</td>
+                    <td>
+                        <input class="form-control" type="text" th:field="*{gdp}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description :</td>
+                    <td>
+                        <textarea class="form-control" cols="" th:field="*{description}"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-primary">Update City</button>
+            <a class="btn btn-primary" href="/">Home</a>
+        </form>
+    </div>
+</main>
 </body>
 </html>
